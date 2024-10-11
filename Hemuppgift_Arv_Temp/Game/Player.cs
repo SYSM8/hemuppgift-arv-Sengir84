@@ -8,8 +8,10 @@ namespace Hemuppgift_Arv_Temp.Game
 {
     public abstract class Player
     {
+        //Fields
         public string UserId { get; set; }
 
+        //Metoder
         public void Playr(string userId)
         {
            UserId = userId;

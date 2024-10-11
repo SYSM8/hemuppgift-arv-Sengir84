@@ -22,7 +22,8 @@ namespace Hemuppgift_Arv_Temp
             cptPlayer.Playr("Hans");
             Console.WriteLine($"Du ska möta {cptPlayer.UserId}");
             cptPlayer.TakePins(board);
-            Console.WriteLine(board.GetNoPins());
+            HumanPlayer human=new HumanPlayer();
+            human.TakePins(board);
             
         }
 
