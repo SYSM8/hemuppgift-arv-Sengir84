@@ -14,9 +14,22 @@ namespace Hemuppgift_Arv_Temp.Game
         {
             Random rng = new Random();  
             int cptTake = rng.Next(1,3);
-            Console.WriteLine($"Motståndaren tar {cptTake}");
-            board.TakePins(cptTake);
-            return board.NoPins;
+            if (cptTake < board.NoPins) 
+            { 
+                Console.WriteLine($"Motståndaren tar {cptTake}");
+                board.TakePins(cptTake);
+                return board.NoPins;
+            }
+            else
+            {
+                cptTake = board.NoPins;
+                Console.WriteLine($"Motståndaren tar {cptTake}");
+                board.TakePins(cptTake);
+                return board.NoPins;
+
+            }
+
+            
         }
     }
 }

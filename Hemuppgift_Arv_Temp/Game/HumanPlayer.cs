@@ -8,18 +8,31 @@ namespace Hemuppgift_Arv_Temp.Game
 {
     internal class HumanPlayer : Player
     {
-       //Mänsklig ta pins metod
+        //Mänsklig ta pins metod
         public override int TakePins(Board board)
         {
-            Console.WriteLine("Hur många pins vill du ta?");
-            int input = Convert.ToInt32(Console.ReadLine());
-            board.TakePins(input);
-            return board.NoPins;
-            
-            
+            int nmbr;
+            bool isnumber = false;
 
+            while (!isnumber) 
+            {
+                Console.WriteLine("Hur många pins vill du ta?");
+                string input = Console.ReadLine();
 
+                isnumber = int.TryParse(input, out nmbr);
+
+                if (isnumber) 
+                {
+                    board.TakePins(nmbr); 
+                    return board.NoPins; 
+                }
+                else 
+                {
+                    Console.WriteLine("Vet du hur tråkigt det är med felhantering?? Skriv rätt nu för fan!");
+                   
+                }
+            }
+            return board.NoPins; //Hit borde den aldrig nå
         }
-        
     }
 }

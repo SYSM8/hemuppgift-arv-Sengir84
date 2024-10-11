@@ -10,13 +10,14 @@ namespace Hemuppgift_Arv_Temp
         //Här är main klassen där koden ska testas, lägg in i mappen
         static void Main(string[] args)
         {
+      #region Objekt
             //Skapa objekteten Board, ComputerPlayer och HumanPlayer
             Board board = new Board();
             
             Player cptPlayer = new ComputerPlayer();
             
             Player human = new HumanPlayer();
-
+      #endregion
             //Namnge spelare
             Console.WriteLine("Spelarens namn?");
             human.Playr(Console.ReadLine());
@@ -25,11 +26,13 @@ namespace Hemuppgift_Arv_Temp
             cptPlayer.Playr(Console.ReadLine());
 
             //Välj antal pins att börja med
-            Console.WriteLine("Hur många pins vill du spela med?");
-            board.SetUp(InputHandling(Console.ReadLine()));
+            Console.WriteLine("Hur många pins vill du spela med? (minst 8)");
+            string input = Console.ReadLine();
+            board.SetUp(InputHandling(input));
+            
            
             //Coinflip för att bestämma vem som börjar
-            Console.WriteLine("Vem börjar? 1 eller 2");
+            Console.WriteLine("50/50 vem som börjar. Välj 1 eller 2");
             string choice = Console.ReadLine();
             //Bool som sätter vem som börjar efter coinflip
             bool playerstart = CoinFlip(choice);
@@ -53,6 +56,7 @@ namespace Hemuppgift_Arv_Temp
                         Console.WriteLine($"{cptPlayer.UserId} tog den sista! Var detta verkligen det bästa du kunde åstadkomma??");
                     }
                 }
+                //if sats för att ändra vilken spelares tur det är
                 if (playerstart == true) 
                 { 
                     playerstart = false;
@@ -86,25 +90,25 @@ namespace Hemuppgift_Arv_Temp
             }
             
         }
-
+        //Coinflip metod för att bestämma vem som börjar
         static bool CoinFlip(string input)
         {
-                     
             int choice = InputHandling(input);
             Random rng = new Random();
             int flip = rng.Next(1, 3);
             Console.WriteLine(flip);
+            
             if (flip == 1)
             {
                 
                 if (flip == choice)
                 {
-                    Console.WriteLine("Congrats you start");
+                    Console.WriteLine("Happ, grattis antar jag. Du får börja!");
                     return true;
                 }
                 else
                 {
-                    Console.WriteLine("You failed the flip, computer starts");
+                    Console.WriteLine("Hur svårt ska det vara att gissa rätt på en 50/50, SKÄRP DIG NU! Jaja jag börjar väl då");
                     return false;
                 }
                 
@@ -114,13 +118,13 @@ namespace Hemuppgift_Arv_Temp
                 
                 if (choice == flip)
                 {
-                    Console.WriteLine("Congrats you start");
+                    Console.WriteLine("Oooohh du gissa rätt på en 50/50 ladida... Jaja du får väl börja då");
                     return true;
 
                 }
                 else
                 {
-                    Console.WriteLine("You failed the flip, computer starts");
+                    Console.WriteLine("Hahahahahahaha... Jag börjar");
                     return false;
                 }
 
