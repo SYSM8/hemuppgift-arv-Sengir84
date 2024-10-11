@@ -1,4 +1,5 @@
-﻿using System.Threading.Channels;
+﻿using Hemuppgift_Arv_Temp.Game;
+using System.Threading.Channels;
 
 namespace Hemuppgift_Arv_Temp
 {
@@ -7,11 +8,21 @@ namespace Hemuppgift_Arv_Temp
         //Här är main klassen där koden ska testas, lägg in i mappen
         static void Main(string[] args)
         {
+            //Skapa objektet board
             Board board = new Board();
-            Console.WriteLine("hur många pins?");
-            
+
+            //Start av spelet
+            Console.WriteLine("Hur många pins vill du spela med?");
             board.SetUp(InputHandling(Console.ReadLine()));
-            
+
+            Console.WriteLine("Hur många pins vill du ta?");
+            board.TakePins(InputHandling(Console.ReadLine()));
+
+            ComputerPlayer cptPlayer = new ComputerPlayer();
+            cptPlayer.Playr("Hans");
+            Console.WriteLine($"Du ska möta {cptPlayer.UserId}");
+            cptPlayer.TakePins(board);
+            Console.WriteLine(board.GetNoPins());
             
         }
 

@@ -22,7 +22,7 @@ namespace Hemuppgift_Arv_Temp
             if (input > 0)
             {
                 NoPins = input;
-                Console.WriteLine("Spelet är förberett varsågod att börja");
+                Console.WriteLine($"Spelet är förberett med {NoPins} varsågod att börja");
             }
             else { Console.WriteLine("det måste finnas pins"); }
            
@@ -30,8 +30,15 @@ namespace Hemuppgift_Arv_Temp
 
         public void TakePins(int input)
         {
-           NoPins -= input;
-            Console.WriteLine($"Nu finns det {NoPins} kvar");
+            if (input > 0 && input < 3)
+            {
+                NoPins -= input;
+                Console.WriteLine($"Nu finns det {NoPins} kvar");
+            }
+            else
+            {
+                Console.WriteLine("Du måste välja en eller 2 pins");
+            }
         }
 
         public int GetNoPins() 
