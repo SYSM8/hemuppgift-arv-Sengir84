@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hemuppgift_Arv_Temp.Game;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace Hemuppgift_Arv_Temp
             if (input > 0)
             {
                 NoPins = input;
-                Console.WriteLine($"Spelet är förberett med {NoPins} varsågod att börja");
+                Console.WriteLine($"Spelet är förberett med {NoPins} st nypolerade stickor. LET´S GET READY TO RUMBLE!!");
             }
             else { Console.WriteLine("det måste finnas pins"); }
            

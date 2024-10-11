@@ -9,18 +9,12 @@ namespace Hemuppgift_Arv_Temp.Game
 {
     public class ComputerPlayer : Player
     {
-        //Skapar en datorspelare
-        public void CptPlayer(string user)
-        {
-            ComputerPlayer computerPlayer = new ComputerPlayer();
-            computerPlayer.Playr(user);
-
-        }
         //Metod för att Datorn ska ta 1 eller 2 stickor på random från brädet
         public override int TakePins(Board board) 
         {
             Random rng = new Random();  
             int cptTake = rng.Next(1,3);
+            Console.WriteLine($"Motståndaren tar {cptTake}");
             board.TakePins(cptTake);
             return board.NoPins;
         }
