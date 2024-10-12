@@ -13,7 +13,7 @@ namespace Hemuppgift_Arv_Temp.Game
         {
             int nmbr;
             bool isnumber = false;
-
+            
             while (!isnumber) 
             {
                 Console.WriteLine("Hur många pins vill du ta?");

@@ -40,6 +40,7 @@ namespace Hemuppgift_Arv_Temp
             //Gameplay
             while (board.NoPins > 0)
             {
+                //Spelares tur
                 if (playerstart == true)
                 {
                     human.TakePins(board);
@@ -48,6 +49,7 @@ namespace Hemuppgift_Arv_Temp
                         Console.WriteLine("Du tog den sista! Grattis osv");
                     }
                 }
+                //Datorns tur
                 else if (playerstart == false)
                 {
                     cptPlayer.TakePins(board);

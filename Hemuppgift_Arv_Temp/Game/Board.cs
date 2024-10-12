@@ -46,7 +46,7 @@ namespace Hemuppgift_Arv_Temp
                 }
             }
         }
-
+        //Metod för att ta pins
         public void TakePins(int input)
         {
             bool loop = true;
@@ -60,7 +60,7 @@ namespace Hemuppgift_Arv_Temp
                 }
                 else
                 {
-                    Console.WriteLine("Du måste välja en eller 2 pins och du kan inte välja fler än vad som finns på brädet, prova igen");
+                    Console.WriteLine("Du måste välja 1 eller 2 pins och du kan inte välja fler än vad som finns på brädet, ganska logiskt va?? Prova igen så får vi se om du lyckas nu");
                     string newnmbr = Console.ReadLine();
 
                     bool isnumber = int.TryParse(newnmbr, out int nmbr);
@@ -70,13 +70,13 @@ namespace Hemuppgift_Arv_Temp
                     }
                     else
                     {
-                        Console.WriteLine("Antingen försöker du ta fler pins än vad som finns eller så är det fel inmatning");
+                        Console.WriteLine("Antingen försöker du ta fler pins än vad som finns eller så är det fel inmatning eller så driver du med mig...");
                     }
                 }
 
             }
         }
-
+        //Metod som returnerar hur många pins som är kvar på brädet
         public int GetNoPins() 
         { 
             return NoPins; 
