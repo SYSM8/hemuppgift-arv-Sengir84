@@ -14,8 +14,9 @@ namespace Hemuppgift_Arv_Temp
             //Skapa objekteten Board, ComputerPlayer och HumanPlayer
             Board board = new Board();
             
-            Player cptPlayer = new ComputerPlayer();
-            
+            //Player cptPlayer = new ComputerPlayer();
+            Player cptPlayer2 = new AdvancedComputer();
+
             Player human = new HumanPlayer();
       #endregion
             //Namnge spelare
@@ -23,7 +24,7 @@ namespace Hemuppgift_Arv_Temp
             human.Playr(Console.ReadLine());
 
             Console.WriteLine("Datorns namn?");
-            cptPlayer.Playr(Console.ReadLine());
+            cptPlayer2.Playr(Console.ReadLine());
 
             //Välj antal pins att börja med
             Console.WriteLine("Hur många pins vill du spela med? (minst 8)");
@@ -52,10 +53,10 @@ namespace Hemuppgift_Arv_Temp
                 //Datorns tur
                 else if (playerstart == false)
                 {
-                    cptPlayer.TakePins(board);
+                    cptPlayer2.TakePins(board);
                     if (board.NoPins == 0)
                     {
-                        Console.WriteLine($"{cptPlayer.UserId} tog den sista! Var detta verkligen det bästa du kunde åstadkomma??");
+                        Console.WriteLine($"{cptPlayer2.UserId} tog den sista! Var detta verkligen det bästa du kunde åstadkomma??");
                     }
                 }
                 //if sats för att ändra vilken spelares tur det är

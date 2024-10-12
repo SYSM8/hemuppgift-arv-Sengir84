@@ -20,6 +20,7 @@ namespace Hemuppgift_Arv_Temp.Game
                 board.TakePins(cptTake);
                 return board.NoPins;
             }
+            //Om det bara finns en pin kvar men datorn försöker ta 2 ändras värdet till 1
             else
             {
                 cptTake = board.NoPins;
