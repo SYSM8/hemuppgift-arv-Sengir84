@@ -18,34 +18,13 @@ namespace Hemuppgift_Arv_Temp
         
         //Metoder
 
-        //Metod som skapar en lista med så många pins som man vill spela med
+        //Sätter antal pins på startbrädet
         public void SetUp(int input) 
         {
-            while (NoPins <8) 
-            { 
-                if (input > 7)
-                {
                     NoPins = input;
-                    Console.WriteLine($"Spelet är förberett med {NoPins} st nypolerade stickor. LET´S GET READY TO RUMBLE!!");
-                }
-                else 
-                { 
-                    Console.WriteLine("det måste finnas minst 8 pins skriv in ett nytt antal");
-                    string newnmbr = Console.ReadLine();
-                    
-                    bool isnumber = int.TryParse(newnmbr, out int nmbr);
-                    if (isnumber)
-                    {
-                       NoPins = nmbr;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Fortfarande för lågt nummer eller fel inmatning");
-                    }
-                    
-                }
-            }
+                    Console.WriteLine($"\nSpelet är förberett med {NoPins} st nypolerade stickor. LET´S GET READY TO RUMBLE!!");
         }
+                
         //Metod för att ta pins
         public void TakePins(int input)
         {

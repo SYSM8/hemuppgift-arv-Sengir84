@@ -20,11 +20,13 @@ namespace Hemuppgift_Arv_Temp
             {
                 if (board.NoPins == 1)
                 {
+                    Console.WriteLine($"Motståndaren tar {board.NoPins}");
                     board.TakePins(1);
                     return board.NoPins;
                 }
                 else
                 {
+                    Console.WriteLine($"Motståndaren tar {board.NoPins}");
                     board.TakePins(2);
                     return board.NoPins;
                 }
@@ -32,12 +34,14 @@ namespace Hemuppgift_Arv_Temp
             //om leavepins = 0 är vi i en multipel av 3, om leavepins = 1 ska datorn ta en för att komma in i en multipel av 3
             else if (leavepins == 0 || leavepins == 1)
             {
+                Console.WriteLine($"Motståndaren tar 1 pin");
                 board.TakePins(1);
                 return board.NoPins;
             }
             //om leavepins = 2 ska datorn ta 2 för att komma in i en multipel av 3
             else if (leavepins == 2)
             {
+                Console.WriteLine($"Motståndaren tar 2 pins");
                 board.TakePins(2);
                 return board.NoPins;
             }
