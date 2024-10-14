@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace Hemuppgift_Arv_Temp
 {
+    //SVAR PÅ FRÅGORNA
+    //A) Superklass eller Basklass
+    //B) Inga, det går inte att skapa en new Player för att den är abstract och de andra har ingen konstruktor för att ta emot ett namn
     public class TakePins
     {
         //Här är main klassen där koden ska testas, lägg in i mappen
@@ -22,7 +25,7 @@ namespace Hemuppgift_Arv_Temp
             //Namnge spelare
             Console.WriteLine("Vad heter du?");
             human.PlayerName(Console.ReadLine());
-
+            
 
       #region Meny
             bool loop = true;
