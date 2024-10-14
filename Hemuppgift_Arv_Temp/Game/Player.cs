@@ -15,7 +15,7 @@ namespace Hemuppgift_Arv_Temp.Game
         //Metoder
         
         // Sätter UserId
-        public void Playr(string userId)
+        public void PlayerName(string userId)
         {
            UserId = userId;
         }

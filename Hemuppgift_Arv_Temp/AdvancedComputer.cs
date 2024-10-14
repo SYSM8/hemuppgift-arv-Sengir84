@@ -10,7 +10,7 @@ namespace Hemuppgift_Arv_Temp
 {
     public class AdvancedComputer : Player
     {
-        
+        //En mer avancerad strategi för att försöka få spelaren att hamna på en multipel av 3   
         public override int TakePins(Board board)
         {
             //variabel som finns för att räkna ut vad som är delbart med 3 för att kunna lämna det till spelaren
@@ -29,7 +29,7 @@ namespace Hemuppgift_Arv_Temp
                     return board.NoPins;
                 }
             }
-            //om leavepins = 0 är vi i en multipel av 3 om leavepins = 1 ska datorn ta en för att komma in i en multipel av 3
+            //om leavepins = 0 är vi i en multipel av 3, om leavepins = 1 ska datorn ta en för att komma in i en multipel av 3
             else if (leavepins == 0 || leavepins == 1)
             {
                 board.TakePins(1);

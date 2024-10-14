@@ -1,4 +1,5 @@
 ﻿using Hemuppgift_Arv_Temp.Game;
+using System.Drawing;
 using System.Globalization;
 using System.Threading.Channels;
 using System.Xml.Serialization;
@@ -10,21 +11,93 @@ namespace Hemuppgift_Arv_Temp
         //Här är main klassen där koden ska testas, lägg in i mappen
         static void Main(string[] args)
         {
-      #region Objekt
-            //Skapa objekteten Board, ComputerPlayer och HumanPlayer
             Board board = new Board();
-            
-            //Player cptPlayer = new ComputerPlayer();
-            Player cptPlayer2 = new AdvancedComputer();
-
             Player human = new HumanPlayer();
-      #endregion
+            Player cptPlayer;
+            Console.WriteLine("Vad heter du?");
+            human.PlayerName(Console.ReadLine()); 
+           
+                        
             //Namnge spelare
-            Console.WriteLine("Spelarens namn?");
-            human.Playr(Console.ReadLine());
+            Console.WriteLine($"Välkommen till Take pins {human.PlayerName} \n---------------------------------------------------");
+            Console.WriteLine("\n             Meny\n---------------------------");
+            Console.WriteLine("1) Svårighetsgrad");
+            Console.WriteLine("3) Starta spelet");
+            Console.WriteLine("5) Avsluta");
 
-            Console.WriteLine("Datorns namn?");
-            cptPlayer2.Playr(Console.ReadLine());
+            switch (InputHandling(Console.ReadLine()))
+            {
+                case 1:
+                    { 
+                        Console.WriteLine("Svårighetsgrad 1 = Lätt, 2 = Svår");
+                        int val = InputHandling(Console.ReadLine());
+                        if (val == 1)
+                        {
+                            cptPlayer = new ComputerPlayer();
+                            Console.WriteLine("Vill du välja namn på datorspelaren? (J/N)");
+                            string chooseName = Console.ReadLine();
+                            chooseName.ToUpper();
+                           
+                            if (chooseName == "J")
+                            {
+                                Console.Write("Namn:");
+                                cptPlayer.PlayerName(Console.ReadLine());
+                                break;
+                            }
+                            else if (chooseName == "N")
+                            {
+                                cptPlayer.PlayerName("Easy computer");
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Skriv bara J eller N");
+                                break;
+                            }
+                            
+                        }
+                        else if (val == 2)
+                        {
+                            cptPlayer = new AdvancedComputer();
+                            Console.WriteLine("Vill du välja namn på datorspelaren? (J/N)");
+                            string chooseName = Console.ReadLine();
+                            chooseName.ToUpper();
+                            if (chooseName == "J")
+                            {
+                                Console.Write("Namn:");
+                                cptPlayer.PlayerName(Console.ReadLine());
+                                break;
+                            }
+                            else if (chooseName == "N")
+                            {
+                                cptPlayer.PlayerName("Hard computer");
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Skriv bara J eller N");
+                                break;
+                            }
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Du kan bara välja 1 eller 2");
+                            break;
+                        }
+                    }
+                
+                case 2: 
+                    {
+                        //Skapa objekteten Board, ComputerPlayer och HumanPlayer
+                        
+                        board.NoPins = 21;
+                        break;
+                    }
+            }
+           
+
+            
 
             //Välj antal pins att börja med
             Console.WriteLine("Hur många pins vill du spela med? (minst 8)");
@@ -53,10 +126,10 @@ namespace Hemuppgift_Arv_Temp
                 //Datorns tur
                 else if (playerstart == false)
                 {
-                    cptPlayer2.TakePins(board);
+                    cptPlayer.TakePins(board);
                     if (board.NoPins == 0)
                     {
-                        Console.WriteLine($"{cptPlayer2.UserId} tog den sista! Var detta verkligen det bästa du kunde åstadkomma??");
+                        Console.WriteLine($"{cptPlayer.UserId} tog den sista! Var detta verkligen det bästa du kunde åstadkomma??");
                     }
                 }
                 //if sats för att ändra vilken spelares tur det är
